@@ -9,6 +9,7 @@ import com.algaworks.curso.jpa2.modelo.Fabricante;
 
 public class FabricanteDAO implements Serializable {
 
+	private static final long serialVersionUID = -3506149991121904563L;
 	@Inject
 	private EntityManager em;
 	
