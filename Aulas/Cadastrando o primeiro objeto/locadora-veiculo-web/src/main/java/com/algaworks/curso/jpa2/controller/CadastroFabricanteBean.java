@@ -16,8 +16,6 @@ import com.algaworks.curso.jpa2.util.jsf.FacesUtil;
 @ViewScoped
 public class CadastroFabricanteBean implements Serializable {
 
-	private static final long serialVersionUID = 8446540124580620802L;
-
 	@Inject
 	private CadastroFabricanteService cadastroFabricanteService;
 	

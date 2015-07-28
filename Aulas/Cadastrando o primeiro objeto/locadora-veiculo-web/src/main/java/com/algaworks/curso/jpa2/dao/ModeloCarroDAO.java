@@ -12,29 +12,31 @@ import com.algaworks.curso.jpa2.service.NegocioException;
 import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class ModeloCarroDAO implements Serializable {
-private static final long serialVersionUID = -1512055683510839383L;
 
 	@Inject
 	private EntityManager manager;
 	
-	public ModeloCarro buscarPeloCodigo(Long codigo){
+	public ModeloCarro buscarPeloCodigo(Long codigo) {
 		return manager.find(ModeloCarro.class, codigo);
 	}
-	public void salvar(ModeloCarro modeloCarro){
+	
+	public void salvar(ModeloCarro modeloCarro) {
 		manager.merge(modeloCarro);
 	}
-	@SuppressWarnings("unchecked")
-	public List<ModeloCarro>buscarTodos(){
+
+	public List<ModeloCarro> buscarTodos() {
 		return manager.createQuery("from ModeloCarro").getResultList();
 	}
+	
 	@Transactional
-	public void excluir(ModeloCarro modeloCarro) throws NegocioException{
+	public void excluir(ModeloCarro modeloCarro) throws NegocioException {
 		modeloCarro = buscarPeloCodigo(modeloCarro.getCodigo());
 		try {
 			manager.remove(modeloCarro);
 			manager.flush();
 		} catch (PersistenceException e) {
-			throw new NegocioException("Este modelo não pode ser excluido");
+			throw new NegocioException("Este modelo não pode ser excluído.");
 		}
 	}
+	
 }
