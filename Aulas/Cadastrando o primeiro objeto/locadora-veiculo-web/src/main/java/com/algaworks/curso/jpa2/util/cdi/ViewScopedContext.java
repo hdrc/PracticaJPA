@@ -37,7 +37,6 @@ public class ViewScopedContext implements Context, SystemEventListener {
 		return instance;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T get(final Contextual<T> component, final CreationalContext<T> creationalContext) {
 		assertActive();
@@ -98,7 +97,6 @@ public class ViewScopedContext implements Context, SystemEventListener {
 	 * 
 	 * @see javax.faces.event.SystemEventListener#processEvent(javax.faces.event.SystemEvent)
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void processEvent(final SystemEvent event) {
 		if (event instanceof PreDestroyViewMapEvent) {
